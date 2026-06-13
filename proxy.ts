@@ -25,10 +25,10 @@ export async function proxy(request: NextRequest) {
         for (const cookieStr of cookieArray) {
           const parsed = parse(cookieStr);
           const options = {
-            expires: parsed.Expires ? new Date(parsed.Expires) : undefined,
-            path: parsed.Path,
-            maxAge: Number(parsed['Max-Age']),
-          };
+             expires: parsed.expires ? new Date(parsed.expires) : undefined,
+             path: parsed.path,
+             maxAge: parsed['max-age'] ? Number(parsed['max-age']) : undefined,
+           };
           if (parsed.accessToken) cookieStore.set('accessToken', parsed.accessToken, options);
           if (parsed.refreshToken) cookieStore.set('refreshToken', parsed.refreshToken, options);
         }
