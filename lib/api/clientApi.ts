@@ -22,7 +22,7 @@ interface CreateNoteData {
 export type RegisterRequest = {
   email: string;
   password: string;
-  userName: string;
+  username: string;
 };
 
 export type LoginRequest = {
@@ -36,7 +36,7 @@ export type CheckSessionRequest = {
 
 export type UpdateUserRequest = {
   username?: string;
-  email: string;
+  email?: string;
 };
 
 export const fetchNotes = async ({
